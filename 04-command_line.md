@@ -14,7 +14,7 @@ Make a cheat sheet for yourself: a list of commands and what they do, focused on
 
 cmd line reference
 
-pushd - skip to directory
+pushd - skip to directory 
 popd - easily skip back from pushd directory
 mkdir - make series of directories with -p
 touch - makes an empty file
