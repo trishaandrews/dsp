@@ -14,28 +14,35 @@ Make a cheat sheet for yourself: a list of commands and what they do, focused on
 
 cmd line reference
 
-pushd - skip to directory \n
+pushd - skip to directory
+
 popd - easily skip back from pushd directory
+
 mkdir - make series of directories with -p
+
 touch - makes an empty file
+
 apropos - find what man page is appropriate, displays MANY options
+
 export - export/set a new environment variable
+
 unset - remove env variable
+
 chmod - change files and directories recursively with -R
 	755 = User:rwx Group:r-x World:r-x
 chown - change ownership
 	chown root /u
-              Change the owner of /u to "root".
+	    Change the owner of /u to "root".
 
 xargs - execute arguments
 	find /tmp -name core -type f -print0 | xargs -0 /bin/rm -f
-
+	
        Find files named core in or below the directory /tmp and  delete  them,
        processing  filenames  in  such a way that file or directory names con‐
        taining spaces or newlines are correctly handled.
 
 	xargs sh -c 'emacs "$@" < /dev/tty' emacs
-
+	
        Launches  the  minimum  number of copies of Emacs needed, one after the
        other, to edit the files listed on xargs' standard input.  This example
        achieves the same effect as BSD's -o option, but in a more flexible and
@@ -66,13 +73,13 @@ What does `xargs` do? Give an example of how to use it.
 
  xargs reads and executes input arguments
 	find /tmp -name core -type f -print0 | xargs -0 /bin/rm -f
-
+	
        Find files named core in or below the directory /tmp and  delete  them,
        processing  filenames  in  such a way that file or directory names con‐
        taining spaces or newlines are correctly handled.
 
 	xargs sh -c 'emacs "$@" < /dev/tty' emacs
-
+	
        Launches  the  minimum  number of copies of Emacs needed, one after the
        other, to edit the files listed on xargs' standard input.  This example
        achieves the same effect as BSD's -o option, but in a more flexible and
