@@ -13,38 +13,28 @@ these in a couple of hours.
 Make a cheat sheet for yourself: a list of commands and what they do, focused on things that are new, interesting, or otherwise worth remembering.
 
 cmd line reference <br>
-pushd - skip to directory
-
-popd - easily skip back from pushd directory
-
-mkdir - make series of directories with -p
-
-touch - makes an empty file
-
-apropos - find what man page is appropriate, displays MANY options
-
-export - export/set a new environment variable
-
-unset - remove env variable
-
-chmod - change files and directories recursively with -R
-	755 = User:rwx Group:r-x World:r-x
-chown - change ownership
-	chown root /u
-	    Change the owner of /u to "root".
-
-xargs - execute arguments
-	find /tmp -name core -type f -print0 | xargs -0 /bin/rm -f
-	Find files named core in or below the directory /tmp and  delete  them,
+pushd - skip to directory <br>
+popd - easily skip back from pushd directory <br>
+mkdir - make series of directories with -p <br>
+touch - makes an empty file <br>
+apropos - find what man page is appropriate, displays MANY options <br>
+export - export/set a new environment variable <br>
+unset - remove env variable <br>
+chmod - change files and directories recursively with -R <br>
+	755 = User:rwx Group:r-x World:r-x <br>
+chown - change ownership <br>
+	chown root /u <br>
+	    Change the owner of /u to "root". <br>
+xargs - execute arguments <br>
+	find /tmp -name core -type f -print0 | xargs -0 /bin/rm -f <br>
+       Find files named core in or below the directory /tmp and  delete  them,
        processing  filenames  in  such a way that file or directory names con‐
-       taining spaces or newlines are correctly handled.
-       
-xargs sh -c 'emacs "$@" < /dev/tty' emacs
-	
+       taining spaces or newlines are correctly handled. <br>
+	xargs sh -c 'emacs "$@" < /dev/tty' emacs <br>
        Launches  the  minimum  number of copies of Emacs needed, one after the
        other, to edit the files listed on xargs' standard input.  This example
        achieves the same effect as BSD's -o option, but in a more flexible and
-       portable way.
+       portable way. <br>
 
 
 
@@ -69,15 +59,13 @@ ls, ls -a, and ls -l are all useful for their respective purposes. ls -lh doesn'
 
 What does `xargs` do? Give an example of how to use it.
 
- xargs reads and executes input arguments
-	find /tmp -name core -type f -print0 | xargs -0 /bin/rm -f
-	
+ xargs reads and executes input arguments <br>
+	find /tmp -name core -type f -print0 | xargs -0 /bin/rm -f <br>
        Find files named core in or below the directory /tmp and  delete  them,
        processing  filenames  in  such a way that file or directory names con‐
-       taining spaces or newlines are correctly handled.
+       taining spaces or newlines are correctly handled. <br>
 
-xargs sh -c 'emacs "$@" < /dev/tty' emacs
-	
+xargs sh -c 'emacs "$@" < /dev/tty' emacs <br>
        Launches  the  minimum  number of copies of Emacs needed, one after the
        other, to edit the files listed on xargs' standard input.  This example
        achieves the same effect as BSD's -o option, but in a more flexible and
