@@ -12,7 +12,6 @@ these in a couple of hours.
 
 Make a cheat sheet for yourself: a list of commands and what they do, focused on things that are new, interesting, or otherwise worth remembering.
 
-cmd line reference <br>
 pushd - skip to directory <br>
 popd - easily skip back from pushd directory <br>
 mkdir - make series of directories with -p <br>
