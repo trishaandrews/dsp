@@ -31,7 +31,7 @@ Both Emacs and vim have built-in interactive tutorials that you can try.
 
 What terminal editor will you use? How did you make your decision?
 
-REPLACE THIS TEXT WITH YOUR RESPONSE
+I will use Emacs because I have some previous familiarity with it and enjoy its numerous features.
 
 ---
 
@@ -61,6 +61,6 @@ We will also use Jupyter (IPython) notebooks, but this does not remove the need 
 
 What graphical editor will you use? How did you make your decision? What are some interesting features of your editor? What are some useful keyboard shortcuts for your editor? How do you customize your editor?
 
-REPLACE THIS TEXT WITH YOUR RESPONSE
+I'm about equally familiar with Emacs and Sublime. I like that Sublime is prettier, has a nice map view of the code, and a simpler autocomplete for variables, but Emacs also has a lot of functionality and can be faster to navigate across lines. M-x tetris opens a game of tetris in emacs, and the skip to end of sentence or line options are nice. In Sublime I like the tab autocomplete options the best. Both editors use spaces instead of tabs, and my CapsLock key is mapped to Ctrl in general, which is convenient.
 
 ---
