@@ -1,6 +1,7 @@
 # Based on materials copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
 
+from operator import itemgetter
 
 def match_ends(words):
     """
@@ -15,7 +16,11 @@ def match_ends(words):
     >>> match_ends(['aaa', 'be', 'abc', 'hello'])
     1
     """
-    raise NotImplementedError
+    count = 0
+    for w in words:
+        if len(w) >= 2 and w[0] == w[-1]:
+            count +=1
+    return count
 
 
 def front_x(words):
@@ -32,7 +37,17 @@ def front_x(words):
     >>> front_x(['mix', 'xyz', 'apple', 'xanadu', 'aardvark'])
     ['xanadu', 'xyz', 'aardvark', 'apple', 'mix']
     """
-    raise NotImplementedError
+    xs = []
+    other = []
+    for w in words:
+        if w[0] == "x":
+            xs.append(w)
+        else:
+            other.append(w)
+    xs.sort()
+    other.sort()
+    xfront = xs + other
+    return xfront
 
 
 def sort_last(tuples):
@@ -49,7 +64,8 @@ def sort_last(tuples):
     >>> sort_last([(1, 7), (1, 3), (3, 4, 5), (2, 2)])
     [(2, 2), (1, 3), (3, 4, 5), (1, 7)]
     """
-    raise NotImplementedError
+    s_last = sorted(tuples, key = itemgetter(-1))
+    return s_last
 
 
 def remove_adjacent(nums):
@@ -68,7 +84,11 @@ def remove_adjacent(nums):
     >>> remove_adjacent([])
     []
     """
-    raise NotImplementedError
+    newnums = []
+    for n in nums:
+        if len(newnums) == 0 or (len(newnums) > 0 and newnums[-1] != n):
+            newnums.append(n)
+    return newnums
 
 
 def linear_merge(list1, list2):
@@ -85,4 +105,23 @@ def linear_merge(list1, list2):
     >>> linear_merge(['aa', 'aa'], ['aa', 'bb', 'bb'])
     ['aa', 'aa', 'aa', 'bb', 'bb']
     """
-    raise NotImplementedError
+    newlist = []
+    l1ct = 0
+    l2ct = 0
+    length = len(list1) + len(list2)
+    for i in range(length):
+        
+        if l1ct > len(list1)-1:
+            newlist += list2[l2ct:]
+            break
+        elif l2ct > len(list2)-1:
+            newlist += list1[l1ct:]
+            break
+        elif list1[l1ct] <= list2[l2ct]:
+            newlist.append(list1[l1ct])
+            l1ct += 1
+        else:
+            newlist.append(list2[l2ct])
+            l2ct +=1 
+            
+    return newlist
