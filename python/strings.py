@@ -1,6 +1,8 @@
 # Based on materials copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
 
+import re
+import string
 
 def donuts(count):
     """
@@ -18,8 +20,14 @@ def donuts(count):
     >>> donuts(99)
     'Number of donuts: many'
     """
-    raise NotImplementedError
-
+    base_str = "Number of donuts: "
+    final_str = ""
+    if count >= 10:
+        final_str = base_str  + "many"
+    else:
+        final_str = base_str +"%d" % count
+        
+    return final_str
 
 def both_ends(s):
     """
@@ -37,7 +45,13 @@ def both_ends(s):
     >>> both_ends('xyz')
     'xyyz'
     """
-    raise NotImplementedError
+    s_end = ""
+    if len(s) < 2:
+        pass
+    else:
+        s_end = s[:2] + s[-2:]
+    
+    return s_end
 
 
 def fix_start(s):
@@ -56,8 +70,14 @@ def fix_start(s):
     >>> fix_start('donut')
     'donut'
     """
-    raise NotImplementedError
-
+    letter = s[0]
+    end_str = letter
+    for i in range(1,len(s)):
+        if s[i] == letter:
+            end_str += "*"
+        else:
+            end_str += s[i]
+    return end_str
 
 def mix_up(a, b):
     """
@@ -74,8 +94,15 @@ def mix_up(a, b):
     >>> mix_up('pezzy', 'firm')
     'fizzy perm'
     """
-    raise NotImplementedError
-
+    a1 = a[:2]
+    a2 = a[2:]
+    b1 = b[:2]
+    b2 = b[2:]
+    mix1 = b1 + a2
+    mix2 = a1 + b2
+    end = mix1 + " " + mix2
+    
+    return end
 
 def verbing(s):
     """
@@ -91,7 +118,16 @@ def verbing(s):
     >>> verbing('do')
     'do'
     """
-    raise NotImplementedError
+    
+    end = ""
+    if len(s) < 3:
+        end = s
+    else:
+        if s[-3:] == "ing":
+            end = s + "ly"
+        else:
+            end = s + "ing"
+    return end
 
 
 def not_bad(s):
@@ -111,7 +147,33 @@ def not_bad(s):
     >>> not_bad("It's bad yet not")
     "It's bad yet not"
     """
-    raise NotImplementedError
+
+    #use re instead of plain split because of ! in "This dinner is good!"
+    slist = re.findall(r"[\w']+|[.,!?;]", s)
+    bad_i = None
+    not_i = None
+    end = ""
+
+    for w in range(len(slist)):
+        if slist[w] == "bad":
+            bad_i = w
+        elif slist[w] == "not":
+            not_i = w
+   
+    if not_i < bad_i:
+        slist[not_i] = "good"
+        for i in range(not_i+1, bad_i+1):
+            slist[i] = ""
+        for j in range(len(slist)):
+            if slist[j] != "" and slist[j] != " ":
+                if j != 0 and slist[j] not in string.punctuation:
+                    end += " " + slist[j]
+                else:
+                    end += slist[j]
+    else:
+        end = s
+    return end
+    
 
 
 def front_back(a, b):
@@ -130,4 +192,26 @@ def front_back(a, b):
     >>> front_back('Kitten', 'Donut')
     'KitDontenut'
     """
-    raise NotImplementedError
+    end = ""
+    
+    a1, a2 = divide(a)
+    b1, b2 = divide(b)
+
+    end = a1 + b1 + a2 + b2
+
+    return end
+
+def divide(a):
+    '''
+    Divides string into halves for the front_back method
+    '''
+    a1, a2 = "", ""
+    length = len(a)
+    if length%2 == 0:
+        a1 = a[:length/2]
+        a2 = a[-length/2:]
+    else:
+        a1 = a[:length/2 + 1]
+        a2 = a[-length/2 + 1:]
+   
+    return a1, a2
