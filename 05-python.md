@@ -18,7 +18,7 @@ These exercises are implemented with doctests, which are runnable tests inside d
 
 How are Python lists and tuples similar and different? Which will work as keys in dictionaries? Why?
 
-REPLACE THIS TEXT WITH YOUR RESPONSE
+> Both lists and tuples store multiple values in indexed positions. However, lists are mutable while tuples are not. This means that you can change, add, and remove items in a list, but not in a tuple. Tuples can contain heterogeneous data, and are often used for constant data that should be structured, such as (x, y, z) location data. It wouldn't make sense to modify one of those values, since that would change the whole location. However, it would make sense to have a list of tuples, such as all the locations you visited over vacation. Because they are immutable, tuples can be used as keys in dictionaries so long as the data they contain is also immutable. 
 
 ---
 
@@ -27,8 +27,7 @@ REPLACE THIS TEXT WITH YOUR RESPONSE
 
 How are Python lists and sets similar and different? Give examples of using both. How does performance compare between lists and sets for finding an element. Why?
 
-REPLACE THIS TEXT WITH YOUR RESPONSE
-
+> Python sets hold unordered, hashable data with no duplicates. Sets are unindexed, but can support mathematical set operations such as union and intersection. If you had a list of fruit you just bought, it could be ["banana", "orange", "banana", "kiwi"], but if you made a set of that list it would turn into set(["banana", "orange", "kiwi"]) with the duplicate "banana" entry removed. You could then compare the set of fruit you just bought to the set of fruit you like, say set(["kiwi", "apple", "banana"]) and perform mathematical set operations such as that "kiwi" and "banana" are in both lists. Performance for finding an element is much better in a set than in a list. For finding an element in a list, a comparison must be made with every item in the list for equality, which is O(n), however since items in sets are stored in a hashtable, it is possible to get x in s as O(1).
 ---
 
 
@@ -36,8 +35,11 @@ REPLACE THIS TEXT WITH YOUR RESPONSE
 
 Describe Python's `lambda`. What is it, and what is it used for? Give at least one example, including an example of using a `lambda` in the `key` argument to `sorted`.
 
-REPLACE THIS TEXT WITH YOUR RESPONSE
+> Python's lambda keyword is used as a way to create small, anonymous functions. These functions can then be easily passed into other functions. Lambda functions can be used in functions like `filter` or `sorted`. For example, if you wanted to sort a list of tuples `ul = [(1,"C",2),(3,"A",5),(4,"B",3)]` by the second element, then you could use the sorted function as follows:
 
+```python
+sorted_list = sorted(ul, key=lambda tup: tup[1])
+```
 ---
 
 
@@ -45,7 +47,10 @@ REPLACE THIS TEXT WITH YOUR RESPONSE
 
 Explain list comprehensions. Give examples and show equivalents with `map` and `filter`. How do their capabilities compare? Also demonstrate set comprehensions and dictionary comprehensions.
 
-REPLACE THIS TEXT WITH YOUR RESPONSE
+> List compressions are a way to create new lists by applying operations to the members of another list, sequence, or iterable. For example, if you wanted to create a list of the squares of the numbers 0-9, the result, `[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]` could be created from either the list compression `squares = [x**2 for x in range(10)]` or `squares = map(lambda x: x**2, range(10))`. In this case, the list compression is simpler and easier to read than the `map` operation. 
+> If you want only some squares from the squares list, you can use the `filter` function or further list commpressions to select only the squares, say, greater than 1 and less than 40. We could get the result, `[4, 9, 16, 25, 36]`, by performing either `small_squares = filter(lambda x: x > 1 and x < 40, squares)` or the list compression `small_squares = [x**1 for x in range(10) if x**2 > 1 and x**2 < 40]`. The filter case starts with the already created squares list, while the list compressions can do both operations in one line. 
+> If we wanted a set of squares from the numbers 0-9 instead of a list, we could generate it with a set compression. It would be `squares = {x**2 for x in range(10)}`.
+> Finally, if we wanted a dictionary of the numbers 0-9 mapped to their squares, we could create that with a dictionary compression. It would be `squares = {x:x**2 for x in range(10)}`.
 
 ---
 
