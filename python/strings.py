@@ -148,6 +148,9 @@ def not_bad(s):
     "It's bad yet not"
     """
 
+    #I realize that there's a simpler way to do this with the string
+    # find method, but I wrote it this way first, and it should work.
+    
     #use re instead of plain split because of ! in "This dinner is good!"
     slist = re.findall(r"[\w']+|[.,!?;]", s)
     bad_i = None
