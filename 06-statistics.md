@@ -36,6 +36,11 @@ REPLACE THIS TEXT WITH YOUR RESPONSE
 
 How do frequentist and Bayesian statistics compare?
 
-REPLACE THIS TEXT WITH YOUR RESPONSE
+>Frequentist statistics focuses on the probability of the data, given the hypothesis. It treats data as a repeatable random sample, and the parameters or hypotheses as fixed. This means that the data might be slightly different in a subsequent study, while the parameters remain constant, and the hypotheses are fixed at either true or false, but unknown. Frequentist statistics do not utilize information prior to the current study. The frequentist name comes from the fact that a frequentist view of statistics is concerned with the frequency with which one observes data.
+
+>Bayesian statistics focuses on the probability of the hypothesis, given the data. It treats the data as fixed and the hypothesis as random. In other words, the data is limited to what is observed from the realized sample and the studies are fixed, while the parameters and hypotheses are unknown and have some probability between 0 and 1 of being true or false. Bayesian statistics readily use inferences from prior studies. The name is due to the fact that Bayes' Theorem is necessary to calculate P(Hypothesis | Data).
+
+>[A very readable source](https://oikosjournal.wordpress.com/2011/10/11/frequentist-vs-bayesian-statistics-resources-to-help-you-choose/)  
+>[A somewhat more technical source](http://www.stat.ufl.edu/archived/casella/Talks/BayesRefresher.pdf)
 
 ---
