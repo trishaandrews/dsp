@@ -27,7 +27,40 @@ Communicate the problem, how you solved it, and the solution, within each of the
 
 Elvis Presley had a twin brother who died at birth.  What is the probability that Elvis was an identical twin?
 
-REPLACE THIS TEXT WITH YOUR RESPONSE
+> According to [this website](http://www.twinstwice.com/twins.html), the probability of identical twins is 1/285. Without fertility methods, which would probably be the case with Elvis, the probability of twins is 1/90 overall.
+
+```
+Bayes' theorem for conditional probability: P(A|B) = P(A)P(B|A) / P(B)
+
+P(I|B) = P(Identical twins | twin boys)  
+       = Probability that Elvis was an identical twin given that he 
+         had a twin brother
+
+P(T) = P(Twins in general) = 1/90  
+P(I) = P(Identical) = 1/285  
+P(F) = P(Fraternal)
+     = P(T) - P(I)
+     = 1/90 - 1/285
+P(B|I) = P(Twin boys | Identical)
+       = 0.5, because identical twins have to be the same sex, 
+         but can be either boys or girls  
+P(B|F) = P(Twin Boys | Fraternal)
+       = 0.25, because fraternal twins can be boy boy, boy girl, girl boy, 
+         or girl girl  
+P(B) = P(Twin boys)  
+     = P(Boys | Identical)P(Identical) + P(Boys | Fraternal)P(Fraternal)  
+     = P(B|I)P(I) + P(B|F)P(F)  
+     = 0.5*(1/285) + 0.25*(1/90-1/285)  
+
+P(Identical twins | Boy twins) = P(Identical)P(Boy twins | Identical) / P(Boy twins)
+
+P(I|B) = P(I)P(B|I) / P(B)
+       = P(I)P(B|I) / (P(B|I)P(I) + P(B|F)P(F))
+       = ((1/285)*0.5) / (0.5*(1/285)+0.25*(1/90-1/285)) = 0.48
+
+```
+
+**There is a 48% chance that Elvis had an identical twin**
 
 ---
 
