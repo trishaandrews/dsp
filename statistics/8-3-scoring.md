@@ -111,8 +111,8 @@ lam  RMSE L          Mean Error  Confidence Interval
 ```
 Distribution of L estimates and confidence interval for lam = 2 and lam = 10:
 
-![alt text](/img/8_3_lam2_hist_small.jpg "histogram and ci for lam=2")
-![alt text](/img/8_3_lam10_hist_small.jpg "histogram and ci for lam=10")
+![alt text](https://github.com/trishaandrews/dsp/blob/master/statistics/img/8_3_lam2_hist_small.jpg "histogram and ci for lam=2")
+![alt text](https://github.com/trishaandrews/dsp/blob/master/statistics/img/8_3_lam10_hist_small.jpg "histogram and ci for lam=10")
 
 When lam values increase, the Standard Error, Mean Error, and the size of the confidence interval all increase.
 
